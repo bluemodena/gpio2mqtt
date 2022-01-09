@@ -1,0 +1,100 @@
+mqtt:
+  host: 
+  port: 1883
+  user: ""
+  password: ""
+  topic_prefix: home/brewery
+
+gpio_modules:
+  - name: raspberrypi
+    module: raspberrypi
+
+    #sensor_modules:
+    #  - name: ds18b22
+    #    module: ds18b
+    #    type: DS18S20
+    #    address: 000803702e49
+    #
+    #digital_inputs:
+    #  - name: button
+    #    module: raspberrypi
+    #    pin: 21
+    #    on_payload: "ON"
+    #    off_payload: "OFF"
+    #    pullup: no
+    #    pulldown: yes
+    #    
+    #  - name: button_left
+    #    module: raspberrypi
+    #    pin: 23
+    #    interrupt_payload: "trigger"
+    #    pullup: no
+    #    pulldown: yes
+    #    interrupt: falling
+    #    bouncetime: 200
+
+digital_outputs:
+  - name: Buzzer
+    module: raspberrypi
+    pin: 16
+    on_payload: "on"
+    off_payload: "off"
+    initial: low
+    subtopic: Buzzer
+
+  - name: HLTElement
+    module: raspberrypi
+    pin: 18
+    on_payload: "on"
+    off_payload: "off"
+    initial: low
+    subtopic: HLT/Element
+
+  - name: MashTunElement
+    module: raspberrypi
+    pin: 18
+    on_payload: "on"
+    off_payload: "off"
+    initial: low
+    subtopic: MashTun/Element
+
+  - name: BoilElement
+    module: raspberrypi
+    pin: 18
+    on_payload: "on"
+    off_payload: "off"
+    initial: low
+    subtopic: Boil/Element
+
+  - name: WaterPump
+    module: raspberrypi
+    pin: 23
+    inverted: "true"
+    on_payload: "off"
+    off_payload: "on"
+    initial: low
+    subtopic: WaterPump
+
+  - name: WortPump
+    module: raspberrypi
+    pin: 24
+    inverted: "true"
+    on_payload: "off"
+    off_payload: "on"
+    initial: low
+    subtopic: WortPump
+
+    #sensor_inputs:
+    #  - name: temp_lm75
+    #    module: lm75
+    #    interval: 15
+    #    digits: 4
+    #
+    #  - name: temp_dsb18
+    #    module: ds18b22
+    #    interval: 10
+    #    digits: 2
+    #reporting:
+    #    enabled: no
+    #    issue_id: 123
+
