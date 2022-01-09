@@ -1,0 +1,25 @@
+[Unit]
+Description=gpio2mqtt
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/gpio2mqtt
+ExecStart=/usr/bin/python3 pi_mqtt_gpio/server.py config.yml
+#StandardOutput=inherit
+#StandardError=inherit
+Restart=on-failure
+User=pi   
+
+[Install]
+WantedBy=multi-user.target
+
+
+#sudo setcap cap_net_raw+eip /usr/bin/python3.7
+#Edit value for WorkingDirectory
+#Copy this file to /etc/systemd/system/
+#sudo cp gpio2mqtt.service /etc/systemd/system
+#sudo systemctl daemon-reload
+#sudo systemctl enable gpio2mqtt.service  #if autostart needed
+#sudo systemctl start gpio2mqtt.service
+#sudo systemctl stop gpio2mqtt.service
+#sudo systemctl status gpio2mqtt.service
